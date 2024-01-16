@@ -1,12 +1,5 @@
 return {
     {
-        'goolord/alpha-nvim',
-        config = function()
-            require'alpha'.setup(require'alpha.themes.dashboard'.config)
-        end,
-    },
-
-    {
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
@@ -244,5 +237,22 @@ return {
                 format = {},
             })
         end, 
+    },
+
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        opts = function(_, opts)
+            local logo = [[
+    ██╗   ██╗███████╗██╗███████╗██████╗ ████████╗███████╗ ██████╗██╗  ██╗
+    ██║   ██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██╔════╝██╔════╝██║  ██║
+    ██║   ██║█████╗  ██║█████╗  ██║  ██║   ██║   █████╗  ██║     ███████║
+    ╚██╗ ██╔╝██╔══╝  ██║██╔══╝  ██║  ██║   ██║   ██╔══╝  ██║     ██╔══██║
+     ╚████╔╝ ██║     ██║███████╗██████╔╝██╗██║   ███████╗╚██████╗██║  ██║
+      ╚═══╝  ╚═╝     ╚═╝╚══════╝╚═════╝ ╚═╝╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝
+    ]]
+            logo = string.rep("\n", 8) .. logo .. "\n\n"
+            opts.config = { header = vim.split(logo, "\n") }
+        end,
     },
 }

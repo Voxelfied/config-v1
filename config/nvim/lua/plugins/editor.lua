@@ -262,6 +262,11 @@ return {
                     remove_blankline_trail = false,
                 },
                 scope = { enabled = true },
+                exclude = {
+                    filetypes = {
+                        "dashboard",
+                    },
+                },
             }
         end,
         opts = {},
